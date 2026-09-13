@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>霓霓の小小餐桌｜親子食育研究室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+/* ============================================
+   霓霓の小小餐桌｜親子食育研究室
+   全站樣式
+   ============================================ */
+
+:root {
+  /* 配色 */
+  --bg: #F7F4EE;        /* 奶油米白 主背景 */
+  --surface: #FFFCF7;   /* 柔和白 卡片 */
+  --oat: #EFE8DE;       /* 燕麥杏 次要區塊 */
+  --text: #4A4038;      /* 深霧咖 主文字 */
+  --muted: #83786E;     /* 灰棕 次文字 */
+  --sage: #A9AF99;      /* 低飽和鼠尾草綠 強調 */
+  --sage-soft: #E7EAE0; /* 鼠尾草綠 淡底 */
+  --milk-tea: #D8C5AE;  /* 淡奶茶 輔助 */
+  --warm-brown: #C49D7A;/* 暖棕 少量使用 */
+  --line: #E6DED2;      /* 細線 */
+
+  /* 圓角 */
+  --r-sm: 16px;
+  --r-md: 20px;
+  --r-lg: 24px;
+
+  /* 陰影 極淡 */
+  --shadow: 0 2px 14px rgba(74, 64, 56, 0.05);
+  --shadow-soft: 0 1px 8px rgba(74, 64, 56, 0.04);
+
+  /* 版面 */
+  --max: 1100px;
+  --pad: 20px;
+
+  /* 字體 */
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-serif: "Noto Serif TC", "Songti TC", "PingFang TC", serif;
+  --font-en: "EB Garamond", Georgia, serif;
+}
+
+/* ---------- reset ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+/* 英文小標 */
+.eyebrow {
+  font-family: var(--font-en);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-style: italic;
+}
+
+/* 小標籤 */
+.tag {
+  display: inline-block;
+  font-family: var(--font-en);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.tag--free  { background: var(--sage-soft); color: #6f7860; }
+.tag--class { background: #F0E6D8; color: #a07d54; }
+.tag--recipe{ background: #EDE7DF; color: var(--muted); }
+
+/* ============================================
+   Header
+   ============================================ */
+.site-header {
+  padding: 22px 0 16px;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+.brand-sub {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  margin-top: 2px;
+}
+.avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--oat);
+  display: grid; place-items: center;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  transition: background 0.25s;
+  flex-shrink: 0;
+}
+.avatar:hover { background: var(--sage-soft); }
+.avatar svg { width: 18px; height: 18px; }
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero {
+  position: relative;
+  padding: 30px 0 44px;
+  overflow: hidden;
+}
+.hero .eyebrow { display: block; margin-bottom: 14px; }
+.hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+.hero p {
+  color: var(--muted);
+  margin-top: 16px;
+  font-size: 14.5px;
+  max-width: 30ch;
+}
+/* 手繪淡線條 */
+.hero-doodle {
+  position: absolute;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero-doodle svg { stroke: var(--milk-tea); fill: none; stroke-width: 1.4; }
+.doodle-spoon { top: 34px; right: 8px; width: 52px; }
+.doodle-leaf  { bottom: 40px; right: 46px; width: 34px; }
+.doodle-moon  { top: 96px; right: 62px; width: 22px; }
+.doodle-dots  { bottom: 70px; right: 4px; width: 30px; }
+
+/* ============================================
+   Section
+   ============================================ */
+.section { padding: 26px 0; }
+.section-head { margin-bottom: 20px; }
+.section-head .eyebrow { display: block; margin-bottom: 6px; }
+.section-head h2 {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.section-head .lead {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin-top: 8px;
+  max-width: 34ch;
+}
+
+/* ============================================
+   食譜卡
+   ============================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+.card-grid--two { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.rcard {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rcard:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.rcard-img {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 10px 10px 0;
+}
+.rcard-img img { width: 100%; height: 100%; object-fit: cover; }
+.rcard-img .tag { position: absolute; top: 10px; left: 10px; }
+.rcard-img .lock {
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 64, 56, 0.28);
+  display: grid; place-items: center;
+  color: var(--surface);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(1px);
+}
+.rcard-img .lock span { display: flex; align-items: center; gap: 6px; }
+
+.rcard-body { padding: 14px 16px 18px; }
+.rcard-body h3 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+.rcard-body .desc {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.rcard-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.rcard-meta .star { color: var(--warm-brown); letter-spacing: 0.05em; }
+.rcard-cta {
+  margin-top: 14px;
+  display: inline-block;
+  font-size: 12.5px;
+  color: #6f7860;
+  border-bottom: 1px solid var(--sage);
+  padding-bottom: 2px;
+  letter-spacing: 0.06em;
+  transition: opacity 0.25s;
+}
+.rcard-cta:hover { opacity: 0.7; }
+.rcard-locked-note {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 5px;
+}
+
+/* ============================================
+   我的食譜櫃 CTA 區塊
+   ============================================ */
+.shelf {
+  background: var(--oat);
+  border-radius: var(--r-lg);
+  padding: 30px 26px;
+  text-align: left;
+}
+.shelf .eyebrow { display: block; margin-bottom: 6px; }
+.shelf h2 { font-family: var(--font-serif); font-size: 20px; font-weight: 600; }
+.shelf p { color: var(--muted); font-size: 13.5px; margin: 12px 0 20px; max-width: 28ch; }
+.btn {
+  display: inline-block;
+  background: var(--sage);
+  color: #fbfcf9;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.btn:hover { opacity: 0.88; }
+.btn:active { transform: translateY(1px); }
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+.btn--ghost:hover { background: var(--surface); opacity: 1; }
+.btn--block { display: block; width: 100%; text-align: center; }
+
+/* ============================================
+   頁面標題（列表 / 內頁）
+   ============================================ */
+.page-head { padding: 20px 0 8px; }
+.page-head .eyebrow { display: block; margin-bottom: 8px; }
+.page-head h1 {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.page-head .lead {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 10px;
+  max-width: 30ch;
+  line-height: 1.8;
+}
+
+/* ---------- 分類 tab ---------- */
+.tabs {
+  display: flex;
+  gap: 20px;
+  padding: 22px 0 6px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+.tab {
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  padding-bottom: 12px;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--text); }
+.tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: var(--sage);
+  border-radius: 2px;
+}
+
+/* ============================================
+   單一食譜頁
+   ============================================ */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13.5px;
+  padding: 20px 0 6px;
+  letter-spacing: 0.04em;
+  transition: color 0.25s;
+}
+.back-link:hover { color: var(--text); }
+
+.recipe-cover {
+  aspect-ratio: 3 / 2;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin: 8px 0 20px;
+}
+.recipe-cover img { width: 100%; height: 100%; object-fit: cover; }
+
+.recipe-title {
+  font-family: var(--font-serif);
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin: 12px 0;
+}
+.recipe-intro { color: var(--muted); font-size: 14.5px; line-height: 1.9; }
+
+.recipe-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  padding: 20px 0;
+  margin: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+.recipe-info b { color: var(--text); font-weight: 500; }
+.recipe-info .star { color: var(--warm-brown); }
+
+/* ---------- 分頁 nav（材料 / 步驟）---------- */
+.reader-nav {
+  display: flex;
+  gap: 18px;
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  padding: 6px 0 22px;
+}
+.reader-nav button { transition: color 0.25s; letter-spacing: inherit; }
+.reader-nav button.active { color: var(--text); }
+.reader-nav button.active { border-bottom: 2px solid var(--sage); padding-bottom: 6px; }
+
+/* ---------- 材料頁 ---------- */
+.ingredient-group { margin-bottom: 26px; }
+.ingredient-group h3 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: #6f7860;
+  margin-bottom: 12px;
+  letter-spacing: 0.06em;
+}
+.ing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 14px;
+}
+.ing-row:last-child { border-bottom: none; }
+.ing-row .name { color: var(--text); }
+.ing-row .amt { color: var(--muted); font-family: var(--font-en); letter-spacing: 0.02em; }
+
+/* ---------- 步驟頁 ---------- */
+.step-count {
+  font-family: var(--font-en);
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  color: var(--sage);
+  margin-bottom: 10px;
+}
+.step-label {
+  font-family: var(--font-en);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.step-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.step-img {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: var(--oat);
+}
+.step-img img { width: 100%; height: 100%; object-fit: cover; }
+.step-text { font-size: 15px; line-height: 1.95; color: var(--text); }
+
+/* 提醒小框 */
+.note {
+  border-radius: var(--r-sm);
+  padding: 16px 18px;
+  margin-top: 20px;
+  font-size: 13.5px;
+  line-height: 1.85;
+}
+.note h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+.note--tip { background: #F5EEE2; color: #8a6f4d; }
+.note--tip h4 { color: var(--warm-brown); }
+.note--kid { background: var(--sage-soft); color: #61694f; }
+.note--kid h4 { color: #6f7860; }
+
+/* ---------- 翻頁控制 ---------- */
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 30px 0 10px;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.pager button {
+  flex: 1;
+  padding: 15px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  transition: opacity 0.25s, transform 0.2s;
+}
+.pager .prev { background: var(--surface); border: 1px solid var(--line); color: var(--text); }
+.pager .next { background: var(--sage); color: #fbfcf9; }
+.pager button:disabled { opacity: 0.35; cursor: default; }
+.pager button:not(:disabled):active { transform: translateY(1px); }
+.pager .count {
+  flex: 0 0 auto;
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  min-width: 54px;
+  text-align: center;
+}
+
+/* ============================================
+   我的食譜頁 / 分區
+   ============================================ */
+.subsection { margin-bottom: 34px; }
+.subsection > h2 {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.subsection > .eyebrow { display: block; margin-bottom: 14px; }
+
+.empty {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: var(--r-md);
+  padding: 28px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+/* ============================================
+   會員資料頁
+   ============================================ */
+.profile-card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 30px 24px;
+  margin: 14px 0 22px;
+}
+.profile-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 22px;
+}
+.profile-top .pic {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--sage-soft);
+  display: grid; place-items: center;
+  color: #6f7860;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.profile-top .who .n { font-family: var(--font-serif); font-size: 18px; font-weight: 600; }
+.profile-top .who .j { font-size: 12px; color: var(--muted); margin-top: 3px; letter-spacing: 0.04em; }
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 14px;
+  border-bottom: 1px dashed var(--line);
+}
+.info-row:last-of-type { border-bottom: none; }
+.info-row .k { color: var(--muted); }
+.info-row .v { color: var(--text); }
+
+.stat-row { display: flex; gap: 14px; margin: 22px 0; }
+.stat {
+  flex: 1;
+  background: var(--oat);
+  border-radius: var(--r-md);
+  padding: 20px 16px;
+  text-align: center;
+}
+.stat .num { font-family: var(--font-serif); font-size: 24px; color: #6f7860; }
+.stat .lbl { font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: 0.04em; }
+
+/* ============================================
+   登入頁
+   ============================================ */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px var(--pad) 40px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.login-brand { text-align: center; margin-bottom: 8px; }
+.login-brand .n {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.login-brand .s { font-size: 12px; color: var(--muted); margin-top: 6px; letter-spacing: 0.14em; }
+.login-lead { text-align: center; color: var(--muted); font-size: 14px; margin: 26px 0 40px; }
+
+.field { margin-bottom: 18px; }
+.field label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+}
+.field input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  transition: border-color 0.25s;
+}
+.field input:focus { outline: none; border-color: var(--sage); }
+.field input::placeholder { color: #b8ac9e; }
+
+.login-page .btn { margin-top: 8px; }
+.forgot { text-align: center; margin-top: 22px; }
+.forgot a { font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.forgot a:hover { color: var(--text); }
+.switch-auth { text-align: center; margin-top: 24px; font-size: 13px; color: var(--muted); }
+.switch-auth a { color: #6f7860; border-bottom: 1px solid var(--sage); padding-bottom: 2px; margin-left: 4px; }
+.switch-auth a:hover { opacity: 0.7; }
+.form-err { min-height: 20px; font-size: 13px; color: #b5654d; text-align: center; margin: 4px 0 6px; }
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+  margin-top: 40px;
+  padding: 34px 0 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 2;
+}
+.site-footer .fname { font-family: var(--font-serif); font-size: 15px; color: var(--text); font-weight: 600; }
+.site-footer .fsub { margin-bottom: 16px; letter-spacing: 0.1em; }
+.site-footer .fig { color: var(--text); letter-spacing: 0.04em; }
+.site-footer .fcopy { margin-top: 16px; font-family: var(--font-en); letter-spacing: 0.1em; font-size: 11px; }
+.site-footer .fnote { font-size: 11.5px; letter-spacing: 0.06em; }
+
+/* ============================================
+   小工具
+   ============================================ */
+.hidden { display: none !important; }
+.mt-lg { margin-top: 34px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  .rcard:hover { transform: none; }
+}
+
+/* ============================================
+   桌機 / 平板
+   ============================================ */
+@media (min-width: 700px) {
+  body { font-size: 15.5px; }
+  .hero { padding: 46px 0 56px; }
+  .hero h1 { font-size: 40px; }
+  .hero p { font-size: 15.5px; }
+  .card-grid { grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .card-grid--two { grid-template-columns: repeat(3, 1fr); }
+  .section { padding: 34px 0; }
+  .section-head h2 { font-size: 24px; }
+  .page-head h1 { font-size: 32px; }
+  .recipe-title { font-size: 30px; }
+  .shelf { padding: 40px 40px; }
+  .shelf p { max-width: 40ch; }
+
+  /* 單一食譜頁桌機置中收窄，維持刊物感 */
+  .reader-wrap { max-width: 620px; margin: 0 auto; }
+  .doodle-spoon { width: 70px; right: 40px; }
+}
+
+@media (min-width: 1000px) {
+  .hero h1 { font-size: 44px; }
+}
+
+/* ============================================
+   單頁視圖切換（single-file 版）
+   ============================================ */
+.view { display: none; }
+.view.active { display: block; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============ 登入頁（獨立，無 header/footer）============ -->
+  <div id="v-login" class="view">
+    <main class="login-page">
+      <div class="login-brand">
+        <div class="n">霓霓の小小餐桌</div>
+        <div class="s">親子食育研究室</div>
+      </div>
+      <p class="login-lead">回到你的小小餐桌。</p>
+      <div class="field">
+        <label for="phone">手機號碼</label>
+        <input type="tel" id="phone" placeholder="0912 345 678" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="pw">密碼</label>
+        <input type="password" id="pw" placeholder="請輸入密碼" autocomplete="current-password">
+      </div>
+      <div class="form-err" id="loginErr"></div>
+      <button class="btn btn--block" id="loginBtn">登入</button>
+      <div class="forgot"><a href="#" onclick="return false">忘記密碼</a></div>
+      <div class="switch-auth">還沒有帳號？<a href="#/register">建立一個</a></div>
+    </main>
+  </div>
+
+  <!-- ============ 註冊頁 ============ -->
+  <div id="v-register" class="view">
+    <main class="login-page">
+      <div class="login-brand">
+        <div class="n">霓霓の小小餐桌</div>
+        <div class="s">親子食育研究室</div>
+      </div>
+      <p class="login-lead">建立帳號，先從免費小食譜開始。</p>
+      <div class="field">
+        <label for="rName">暱稱</label>
+        <input type="text" id="rName" placeholder="想怎麼稱呼你？" autocomplete="nickname">
+      </div>
+      <div class="field">
+        <label for="rPhone">手機號碼</label>
+        <input type="tel" id="rPhone" placeholder="0912345678" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="rPw">密碼（至少 6 碼）</label>
+        <input type="password" id="rPw" placeholder="請設定密碼" autocomplete="new-password">
+      </div>
+      <div class="field">
+        <label for="rPw2">確認密碼</label>
+        <input type="password" id="rPw2" placeholder="再輸入一次密碼" autocomplete="new-password">
+      </div>
+      <div class="field">
+        <label for="rInvite">邀請碼（選填）</label>
+        <input type="text" id="rInvite" placeholder="上課拿到的碼，沒有可留空">
+      </div>
+      <div class="form-err" id="regErr"></div>
+      <button class="btn btn--block" id="registerBtn">建立帳號</button>
+      <div class="switch-auth">已經有帳號了？<a href="#/login">回登入</a></div>
+    </main>
+  </div>
+
+  <!-- ============ 站內共用外框（header + 內容 + footer）============ -->
+  <div id="app" class="hidden">
+    <header class="site-header">
+      <div class="wrap">
+        <a href="#/home">
+          <div class="brand-name">霓霓の小小餐桌</div>
+          <div class="brand-sub">親子食育研究室</div>
+        </a>
+        <a href="#/profile" class="avatar" aria-label="會員">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- 首頁 -->
+    <div id="v-home" class="view">
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">Nini Food Education</span>
+          <h1>今天想和孩子<br>一起做什麼？</h1>
+          <p>從一雙小手開始，<br>慢慢認識食物、味道和餐桌。</p>
+        </div>
+        <div class="hero-doodle doodle-spoon">
+          <svg viewBox="0 0 40 60"><ellipse cx="20" cy="14" rx="11" ry="13"/><path d="M20 27 L20 58"/></svg>
+        </div>
+        <div class="hero-doodle doodle-leaf">
+          <svg viewBox="0 0 30 30"><path d="M4 26 C6 8 24 6 26 4 C24 22 10 26 4 26 Z"/><path d="M6 24 L20 10"/></svg>
+        </div>
+        <div class="hero-doodle doodle-moon">
+          <svg viewBox="0 0 24 24"><path d="M20 15 A9 9 0 1 1 11 3 A7 7 0 0 0 20 15 Z"/></svg>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Free Recipes</span>
+            <h2>小小食譜</h2>
+            <p class="lead">平常也想和孩子一起動動手。這裡會不定期分享霓霓研發的簡單小食譜。</p>
+          </div>
+          <div class="card-grid" id="freeGrid"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Class Recipes</span>
+            <h2>課堂延伸</h2>
+            <p class="lead">一起上過的課，回家也可以再慢慢做一次。</p>
+          </div>
+          <div class="card-grid" id="classGrid"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="shelf">
+            <span class="eyebrow">My Recipes</span>
+            <h2>我的食譜櫃</h2>
+            <p>已經收藏的食譜，都放在這裡。</p>
+            <a class="btn" href="#/my">看看我的食譜 →</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 食譜列表 -->
+    <div id="v-recipes" class="view">
+      <main class="wrap">
+        <div class="page-head">
+          <span class="eyebrow">Recipes</span>
+          <h1>食譜</h1>
+          <p class="lead">和孩子一起，慢慢做、慢慢吃、慢慢認識食物。</p>
+        </div>
+        <nav class="tabs" id="tabs">
+          <button class="tab active" data-filter="ALL">全部</button>
+          <button class="tab" data-filter="FREE">FREE</button>
+          <button class="tab" data-filter="CLASS">CLASS</button>
+          <button class="tab" data-filter="RECIPE">RECIPE</button>
+        </nav>
+        <div class="card-grid" id="recipeGrid"></div>
+      </main>
+    </div>
+
+    <!-- 單一食譜閱讀 -->
+    <div id="v-recipe" class="view">
+      <main class="wrap"><div id="recipeReader"></div></main>
+    </div>
+
+    <!-- 我的食譜 -->
+    <div id="v-my" class="view">
+      <main class="wrap">
+        <div class="page-head">
+          <span class="eyebrow">My Recipes</span>
+          <h1>我的食譜</h1>
+          <p class="lead">已經一起做過、上過課或收藏的食譜，都在這裡。</p>
+        </div>
+        <section class="subsection mt-lg">
+          <h2>最近瀏覽</h2><span class="eyebrow">Recently Viewed</span>
+          <div class="card-grid" id="recentGrid"></div>
+        </section>
+        <section class="subsection">
+          <h2>已解鎖</h2><span class="eyebrow">Unlocked</span>
+          <div class="card-grid" id="unlockedGrid"></div>
+        </section>
+        <section class="subsection">
+          <h2>免費食譜</h2><span class="eyebrow">Free Recipes</span>
+          <div class="card-grid" id="myFreeGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <!-- 會員資料 -->
+    <div id="v-profile" class="view">
+      <main class="wrap">
+        <div class="page-head">
+          <span class="eyebrow">My Account</span>
+          <h1>會員資料</h1>
+        </div>
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="pic" id="pInit">小</div>
+            <div class="who"><div class="n" id="pName">—</div><div class="j" id="pJoined">—</div></div>
+          </div>
+          <div class="info-row"><span class="k">姓名</span><span class="v" id="iName">—</span></div>
+          <div class="info-row"><span class="k">手機</span><span class="v" id="iPhone">—</span></div>
+          <div class="info-row"><span class="k">LINE 社群暱稱</span><span class="v" id="iLine">—</span></div>
+          <div class="info-row"><span class="k">加入日期</span><span class="v" id="iJoined">—</span></div>
+          <div class="stat-row">
+            <div class="stat"><div class="num" id="sUnlock">0</div><div class="lbl">已解鎖食譜</div></div>
+            <div class="stat"><div class="num" id="sClass">0</div><div class="lbl">參加課程</div></div>
+          </div>
+        </div>
+        <button class="btn btn--ghost btn--block" id="logoutBtn">登出</button>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="fname">霓霓の小小餐桌</div>
+        <div class="fsub">親子食育研究室</div>
+        <div>Instagram　<span class="fig">_hani.iiii_</span></div>
+        <div class="fcopy">© NINI FOOD EDUCATION</div>
+        <div class="fnote">原創內容・請勿轉載</div>
+      </div>
+    </footer>
+  </div>
+
+<script>
+/* ============================================================
+   ★★★ 把你的 GAS 網址貼在這裡 ★★★
+   部署 GAS 後拿到的 /exec 結尾網址，整段貼進下面引號中間。
+   例如："https://script.google.com/macros/s/AKfy..../exec"
+   ============================================================ */
+var API = "https://script.google.com/macros/s/AKfycbyBOAJHbOnb9GdePBuzjS92_sJKwOpras4bMTqM06nWMQGXJNuvN39TLXysm3AKsoklFw/exec";
+
+// 呼叫 GAS：送 action + 資料，回傳解析後的 JSON
+function callGAS(payload){
+  return fetch(API, {
+    method: "POST",
+    body: JSON.stringify(payload)   // 不設 Content-Type，避開 preflight
+  }).then(function(res){ return res.json(); });
+}
+
+// 取／存 token
+function getToken(){ return sessionStorage.getItem("nini_token") || ""; }
+function setToken(t){ sessionStorage.setItem("nini_token", t); }
+function clearToken(){ sessionStorage.removeItem("nini_token"); }
+
+/* ============================================================
+   假資料
+   ============================================================ */
+function ph(seed, label){
+  var tones=["#EFE8DE","#E7EAE0","#F0E6D8","#EDE7DF","#E3E0D6"];
+  var bg=tones[seed%tones.length];
+  var svg="<svg xmlns='http://www.w3.org/2000/svg' width='400' height='500'>"+
+    "<rect width='400' height='500' fill='"+bg+"'/>"+
+    "<text x='50%' y='50%' fill='#b6ab9c' font-family='Georgia, serif' font-size='22' "+
+    "font-style='italic' text-anchor='middle' dominant-baseline='middle'>"+(label||"nini")+"</text></svg>";
+  return "data:image/svg+xml;base64,"+btoa(unescape(encodeURIComponent(svg)));
+}
+
+var RECIPES=[
+  { id:"mooncake-yolk", name:"把小月亮包進蛋黃酥裡", cardName:"小月亮蛋黃酥",
+    type:"CLASS", category:"親子烘焙", age:"4Y+", time:"約 60 MIN", timeFull:"約 60 分鐘",
+    difficulty:2, unlocked:true,
+    shortDesc:"把鹹蛋黃變成一顆小月亮，一起包進酥酥的麵糰裡。",
+    intro:"揉一揉、擀一擀、捲一捲，一起做出圓滾滾的蛋黃酥。", img:ph(2,"小月亮蛋黃酥"),
+    ingredients:[
+      {group:"油皮",items:[{name:"中筋麵粉",amt:"25 g"},{name:"無水奶油",amt:"10 g"},{name:"細砂糖",amt:"4 g"},{name:"水",amt:"11 g"}]},
+      {group:"油酥",items:[{name:"低筋麵粉",amt:"26 g"},{name:"無水奶油",amt:"11 g"}]},
+      {group:"內餡",items:[{name:"烏豆沙",amt:"10 g × 6"},{name:"鹹蛋黃",amt:"6 顆（每顆半顆）"}]}
+    ],
+    steps:[
+      {title:"準備材料",text:"把所有材料量好、分開放。和孩子一起認一認今天會用到的東西。"},
+      {title:"製作油皮",text:"中筋麵粉、細砂糖、無水奶油和水一起揉成光滑的麵糰，蓋起來鬆弛 20 分鐘。",note:{type:"kid",title:"和孩子一起",text:"可以讓孩子先用小手把材料按一按、壓一壓，感受麵糰慢慢變柔軟。"}},
+      {title:"製作油酥",text:"低筋麵粉加入無水奶油，慢慢攪拌成不沾手的麵糰。",note:{type:"tip",title:"小提醒",text:"不要過度攪拌，避免油酥變得太硬。"}},
+      {title:"分割麵糰",text:"把油皮和油酥都分成 6 等份，搓成一顆顆小球排好。"},
+      {title:"包油酥",text:"壓扁一顆油皮，把油酥包進去，收口捏緊、朝下放。"},
+      {title:"第一次擀捲",text:"把包好的麵糰輕輕擀長，再從一端捲起來，全部捲好蓋著休息 15 分鐘。",note:{type:"tip",title:"小提醒",text:"擀的時候力道放輕，麵糰破掉也沒關係，收口捏起來就好。"}},
+      {title:"第二次擀捲",text:"把捲好的麵糰再擀長一次、再捲一次，蓋著再休息 15 分鐘。"},
+      {title:"準備蛋黃",text:"鹹蛋黃切半，噴一點米酒，烤箱 150 度烤 5 分鐘去腥、放涼。",note:{type:"kid",title:"和孩子一起",text:"烤箱的部分由大人負責，孩子可以在旁邊幫忙數數看有幾顆小月亮。"}},
+      {title:"包內餡",text:"烏豆沙壓扁，把半顆蛋黃包進去，搓成一顆顆圓球。"},
+      {title:"組合",text:"麵糰從中間壓下、兩端往上包，把豆沙球包進去，收口朝下。"},
+      {title:"刷蛋液",text:"表面刷上薄薄一層蛋黃液，撒一點黑芝麻點綴。"},
+      {title:"烘烤完成",text:"烤箱 180 度烤約 25 分鐘，到金黃就完成了。放涼再一起吃。",note:{type:"kid",title:"和孩子一起",text:"等待的時候可以一起收拾桌面，剛出爐很燙，記得放涼再嚐嚐看。"}}
+    ]
+  },
+  { id:"banana-pancake", name:"香蕉優格小鬆餅", cardName:"香蕉優格小鬆餅",
+    type:"FREE", category:"幼兒點心", age:"2Y+", time:"約 20 MIN", timeFull:"約 20 分鐘",
+    difficulty:1, unlocked:true,
+    shortDesc:"熟透的香蕉壓一壓，就是天然的甜味。",
+    intro:"不用砂糖，用香蕉的香甜做出軟軟的小鬆餅。", img:ph(0,"香蕉優格小鬆餅"),
+    ingredients:[{group:"麵糊",items:[{name:"熟香蕉",amt:"1 根"},{name:"無糖優格",amt:"40 g"},{name:"雞蛋",amt:"1 顆"},{name:"低筋麵粉",amt:"60 g"}]}],
+    steps:[
+      {title:"壓香蕉",text:"香蕉放進碗裡，讓孩子用叉子慢慢壓成泥。"},
+      {title:"拌勻",text:"加入優格和蛋，攪一攪，再篩入麵粉輕輕拌成麵糊。"},
+      {title:"小火煎",text:"平底鍋小火，舀一小匙麵糊，冒泡就翻面。"},
+      {title:"完成",text:"兩面金黃就好，疊起來一起吃。"}
+    ]
+  },
+  { id:"veggie-pancake", name:"蔬菜小煎餅", cardName:"蔬菜小煎餅",
+    type:"FREE", category:"幼兒料理", age:"2Y+", time:"約 25 MIN", timeFull:"約 25 分鐘",
+    difficulty:1, unlocked:true,
+    shortDesc:"把冰箱裡的蔬菜通通切小，一起煎得香香的。",
+    intro:"挑一種孩子今天想吃的蔬菜，一起做成小煎餅。", img:ph(1,"蔬菜小煎餅"),
+    ingredients:[{group:"餅糊",items:[{name:"高麗菜（切絲）",amt:"60 g"},{name:"紅蘿蔔（切絲）",amt:"20 g"},{name:"雞蛋",amt:"1 顆"},{name:"中筋麵粉",amt:"40 g"},{name:"水",amt:"30 g"}]}],
+    steps:[
+      {title:"切蔬菜",text:"蔬菜切成細細的絲，孩子可以幫忙把菜放進碗裡。"},
+      {title:"拌麵糊",text:"加入蛋、麵粉和水，攪拌到均勻。"},
+      {title:"煎餅",text:"平底鍋抹一點油，倒入麵糊攤平，兩面煎到金黃。"},
+      {title:"完成",text:"切成小塊，方便小手拿著吃。"}
+    ]
+  },
+  { id:"mini-pizza", name:"小小披薩", cardName:"小小披薩",
+    type:"CLASS", category:"親子料理", age:"3Y+", time:"約 50 MIN", timeFull:"約 50 分鐘",
+    difficulty:2, unlocked:false,
+    shortDesc:"揉一塊小小的餅皮，鋪上自己喜歡的料。",
+    intro:"從揉麵糰開始，做一個屬於自己的小披薩。", img:ph(3,"小小披薩"),
+    ingredients:[], steps:[]
+  },
+  { id:"milk-bun", name:"奶香小餐包", cardName:"奶香小餐包",
+    type:"RECIPE", category:"親子烘焙", age:"4Y+", time:"約 90 MIN", timeFull:"約 90 分鐘",
+    difficulty:3, unlocked:false,
+    shortDesc:"軟軟的小餐包，撕開來還有淡淡奶香。",
+    intro:"花一點時間等麵糰慢慢長大，一起烤出軟軟的小餐包。", img:ph(4,"奶香小餐包"),
+    ingredients:[], steps:[]
+  },
+  { id:"rice-ball", name:"飯糰小朋友", cardName:"飯糰小朋友",
+    type:"FREE", category:"親子料理", age:"2Y+", time:"約 20 MIN", timeFull:"約 20 分鐘",
+    difficulty:1, unlocked:true,
+    shortDesc:"把飯捏成圓圓的臉，貼上海苔就笑了。",
+    intro:"用手捏一捏，做出一個個有表情的飯糰小朋友。", img:ph(2,"飯糰小朋友"),
+    ingredients:[{group:"材料",items:[{name:"白飯",amt:"1 碗"},{name:"海苔",amt:"少許"},{name:"鹽",amt:"1 小撮"}]}],
+    steps:[
+      {title:"拌飯",text:"溫熱的白飯加一點鹽拌勻。"},
+      {title:"捏形狀",text:"手沾一點水，把飯捏成圓圓的球。"},
+      {title:"貼表情",text:"海苔剪成小眼睛和嘴巴，貼上去就完成了。"}
+    ]
+  }
+];
+function getRecipe(id){ return RECIPES.find(function(r){return r.id===id;}); }
+
+var MEMBER={ name:"小豆媽", phone:"0912-345-678", line:"hani.mama", joined:"2024.03.15", unlockedCount:6, classCount:3 };
+
+// 登入/註冊成功後，GAS 回傳的真實會員資料存這裡
+var CURRENT_MEMBER = null;
+
+/* ============================================================
+   共用
+   ============================================================ */
+function stars(n){ return "★★★".slice(0,n)+"☆☆☆".slice(0,3-n); }
+function lockIcon(){
+  return "<svg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' "+
+    "stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-1px'>"+
+    "<rect x='3' y='11' width='18' height='11' rx='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>";
+}
+function recipeCard(r, opts){
+  opts=opts||{};
+  var typeClass="tag--"+r.type.toLowerCase();
+  var lock=r.unlocked?"":"<div class='lock'><span>"+lockIcon()+" 課程限定</span></div>";
+  var cta="";
+  if(opts.showCta){
+    cta=r.unlocked
+      ? "<a class='rcard-cta' href='#/recipe/"+r.id+"'>開始製作 →</a>"
+      : "<div class='rcard-locked-note'>"+lockIcon()+" 課程限定</div>";
+  }
+  var href=r.unlocked?"#/recipe/"+r.id:"#/recipes";
+  return "<article class='rcard'><a href='"+href+"'>"+
+    "<div class='rcard-img'><img src='"+r.img+"' alt='"+r.cardName+"'>"+
+    "<span class='tag "+typeClass+"'>"+r.type+"</span>"+lock+"</div></a>"+
+    "<div class='rcard-body'><h3>"+r.cardName+"</h3>"+
+    "<p class='desc'>"+r.shortDesc+"</p>"+
+    "<div class='rcard-meta'><span>"+r.age+"</span><span>"+r.time+"</span>"+
+    "<span class='star'>"+stars(r.difficulty)+"</span></div>"+cta+"</div></article>";
+}
+
+/* ============================================================
+   單一食譜閱讀器
+   ============================================================ */
+function renderReader(id){
+  var mount=document.getElementById("recipeReader");
+  var r=getRecipe(id);
+  if(!r || !r.unlocked){
+    mount.innerHTML="<a class='back-link' href='#/recipes'>← 食譜</a>"+
+      "<div class='empty' style='margin-top:20px'>這份食譜目前是課程限定，之後解鎖就能一起做。</div>";
+    return;
+  }
+  var totalPages=1+r.steps.length;
+  var page=0;
+  function tc(){ return "tag--"+r.type.toLowerCase(); }
+  function header(){
+    return "<a class='back-link' href='#/recipes'>← 食譜</a>"+
+      "<div class='recipe-cover'><img src='"+r.img+"' alt='"+r.name+"'></div>"+
+      "<span class='tag "+tc()+"'>"+r.type+"</span>"+
+      "<h1 class='recipe-title'>"+r.name+"</h1>"+
+      "<p class='recipe-intro'>"+r.intro+"</p>"+
+      "<div class='recipe-info'><span>"+r.category+"</span><span>"+r.age+"</span>"+
+      "<span>"+r.timeFull+"</span><span>難度 <b class='star'>"+stars(r.difficulty)+"</b></span></div>"+
+      "<div class='reader-nav'>"+
+      "<button data-go='0' class='"+(page===0?"active":"")+"'>MATERIALS 材料</button>"+
+      "<button data-go='1' class='"+(page>0?"active":"")+"'>STEPS 步驟</button></div>";
+  }
+  function ing(){
+    var g=r.ingredients.map(function(gp){
+      var rows=gp.items.map(function(it){
+        return "<div class='ing-row'><span class='name'>"+it.name+"</span><span class='amt'>"+it.amt+"</span></div>";
+      }).join("");
+      return "<div class='ingredient-group'><h3>"+gp.group+"</h3>"+rows+"</div>";
+    }).join("");
+    return "<div class='reader-body'>"+g+"</div>";
+  }
+  function step(i){
+    var s=r.steps[i], num=String(i+1).padStart(2,"0");
+    var note="";
+    if(s.note){
+      var cls=s.note.type==="kid"?"note--kid":"note--tip";
+      note="<div class='note "+cls+"'><h4>"+s.note.title+"</h4>"+s.note.text+"</div>";
+    }
+    var tone=["#EFE8DE","#E7EAE0","#F0E6D8"][i%3];
+    var svg="<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'>"+
+      "<rect width='400' height='300' fill='"+tone+"'/>"+
+      "<text x='50%' y='50%' fill='#bfb4a5' font-family='Georgia' font-size='18' font-style='italic' "+
+      "text-anchor='middle' dominant-baseline='middle'>step "+(i+1)+"</text></svg>";
+    var img="data:image/svg+xml;base64,"+btoa(unescape(encodeURIComponent(svg)));
+    return "<div class='reader-body'><div class='step-count'>"+num+" / "+String(r.steps.length).padStart(2,"0")+"</div>"+
+      "<div class='step-label'>STEP "+num+"</div><div class='step-title'>"+s.title+"</div>"+
+      "<div class='step-img'><img src='"+img+"' alt='步驟 "+(i+1)+"'></div>"+
+      "<div class='step-text'>"+s.text+"</div>"+note+"</div>";
+  }
+  function pager(){
+    var label=page===0?"材料":String(page)+" / "+r.steps.length;
+    return "<div class='pager'><button class='prev' "+(page===0?"disabled":"")+">← 上一步</button>"+
+      "<span class='count'>"+label+"</span>"+
+      "<button class='next' "+(page===totalPages-1?"disabled":"")+">下一步 →</button></div>";
+  }
+  function draw(){
+    var content=page===0?ing():step(page-1);
+    mount.innerHTML="<div class='reader-wrap'>"+header()+content+pager()+"</div>";
+    bind();
+    if(page>0){ var b=mount.querySelector(".reader-body"); if(b) b.scrollIntoView({behavior:"smooth",block:"start"}); }
+  }
+  function go(p){ if(p<0||p>totalPages-1) return; page=p; draw(); }
+  function bind(){
+    var pv=mount.querySelector(".prev"), nx=mount.querySelector(".next");
+    if(pv) pv.addEventListener("click",function(){go(page-1);});
+    if(nx) nx.addEventListener("click",function(){go(page+1);});
+    mount.querySelectorAll(".reader-nav button").forEach(function(b){
+      b.addEventListener("click",function(){go(parseInt(b.dataset.go,10));});
+    });
+  }
+  var sx=0,sy=0;
+  mount.ontouchstart=function(e){ sx=e.changedTouches[0].clientX; sy=e.changedTouches[0].clientY; };
+  mount.ontouchend=function(e){
+    var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5){ if(dx<0) go(page+1); else go(page-1); }
+  };
+  draw();
+}
+
+/* ============================================================
+   各頁填資料
+   ============================================================ */
+function fillHome(){
+  document.getElementById("freeGrid").innerHTML=
+    RECIPES.filter(function(r){return r.type==="FREE";}).slice(0,3).map(function(r){return recipeCard(r,{showCta:true});}).join("");
+  document.getElementById("classGrid").innerHTML=
+    RECIPES.filter(function(r){return r.type==="CLASS";}).slice(0,3).map(function(r){return recipeCard(r,{showCta:true});}).join("");
+}
+function fillRecipes(){
+  var grid=document.getElementById("recipeGrid");
+  function render(f){
+    grid.innerHTML=RECIPES.filter(function(r){return f==="ALL"?true:r.type===f;}).map(function(r){return recipeCard(r);}).join("");
+  }
+  var tabs=document.querySelectorAll("#tabs .tab");
+  tabs.forEach(function(t){
+    t.onclick=function(){ tabs.forEach(function(x){x.classList.remove("active");}); t.classList.add("active"); render(t.dataset.filter); };
+  });
+  document.querySelector("#tabs .tab").classList.add("active");
+  render("ALL");
+}
+function fillMy(){
+  var unlocked=RECIPES.filter(function(r){return r.unlocked;});
+  var free=RECIPES.filter(function(r){return r.type==="FREE";});
+  document.getElementById("recentGrid").innerHTML=unlocked.slice(0,2).map(function(r){return recipeCard(r);}).join("");
+  document.getElementById("unlockedGrid").innerHTML=unlocked.map(function(r){return recipeCard(r);}).join("");
+  document.getElementById("myFreeGrid").innerHTML=free.map(function(r){return recipeCard(r);}).join("");
+}
+function fillProfile(){
+  var m = CURRENT_MEMBER;
+  if(m){ paintProfile(m); return; }
+  // 重新整理後 CURRENT_MEMBER 沒了，但還有 token → 跟 GAS 補抓
+  var t=getToken();
+  if(t){
+    callGAS({ action:"me", token:t }).then(function(r){
+      if(r && r.ok){ CURRENT_MEMBER=r.member; paintProfile(r.member); }
+      else paintProfile(MEMBER);
+    }).catch(function(){ paintProfile(MEMBER); });
+  } else {
+    paintProfile(MEMBER);
+  }
+}
+function paintProfile(m){
+  document.getElementById("pInit").textContent=(m.name||"　").charAt(0);
+  document.getElementById("pName").textContent=m.name||"—";
+  document.getElementById("pJoined").textContent="since "+(m.joined||"");
+  document.getElementById("iName").textContent=m.name||"—";
+  document.getElementById("iPhone").textContent=m.phone||"—";
+  document.getElementById("iLine").textContent=m.line||"—";
+  document.getElementById("iJoined").textContent=m.joined||"—";
+  document.getElementById("sUnlock").textContent=(m.unlockedCount!=null?m.unlockedCount:0);
+  document.getElementById("sClass").textContent=(m.classCount!=null?m.classCount:0);
+}
+
+/* ============================================================
+   路由（hash）
+   ============================================================ */
+function loggedIn(){ return sessionStorage.getItem("nini_logged_in")==="1"; }
+function showView(id){
+  document.querySelectorAll(".view").forEach(function(v){ v.classList.remove("active"); });
+  var el=document.getElementById(id); if(el) el.classList.add("active");
+}
+function router(){
+  var app=document.getElementById("app");
+  var loginView=document.getElementById("v-login");
+
+  if(!loggedIn()){
+    app.classList.add("hidden");
+    var h=location.hash.replace(/^#\//,"");
+    if(h==="register"){ showView("v-register"); }
+    else { showView("v-login"); }
+    return;
+  }
+  app.classList.remove("hidden");
+  loginView.classList.remove("active");
+
+  var hash=location.hash.replace(/^#\//,"") || "home";
+  var parts=hash.split("/");
+  window.scrollTo(0,0);
+
+  if(parts[0]==="recipe" && parts[1]){ showView("v-recipe"); renderReader(parts[1]); return; }
+  switch(parts[0]){
+    case "recipes": showView("v-recipes"); fillRecipes(); break;
+    case "my":      showView("v-my"); fillMy(); break;
+    case "profile": showView("v-profile"); fillProfile(); break;
+    default:        showView("v-home"); fillHome();
+  }
+}
+
+/* ============================================================
+   啟動
+   ============================================================ */
+
+// 登入：打 GAS 驗證手機+密碼
+document.getElementById("loginBtn").addEventListener("click",function(){
+  var phone=document.getElementById("phone").value.trim();
+  var pw=document.getElementById("pw").value;
+  var err=document.getElementById("loginErr"); err.textContent="";
+  var btn=this;
+
+  if(!phone || !pw){ err.textContent="請輸入手機和密碼。"; return; }
+
+  btn.disabled=true; btn.textContent="登入中…";
+  callGAS({ action:"login", phone:phone, password:pw })
+    .then(function(r){
+      if(r && r.ok){
+        setToken(r.token);
+        CURRENT_MEMBER = r.member || null;
+        sessionStorage.setItem("nini_logged_in","1");
+        location.hash="#/home";
+        router();
+      } else {
+        err.textContent = loginErrMsg(r && r.error);
+      }
+    })
+    .catch(function(){ err.textContent="連線失敗，請稍後再試。"; })
+    .then(function(){ btn.disabled=false; btn.textContent="登入"; });
+});
+document.getElementById("pw").addEventListener("keydown",function(e){
+  if(e.key==="Enter") document.getElementById("loginBtn").click();
+});
+
+function loginErrMsg(code){
+  if(code==="invalid_login") return "手機或密碼不對，再試一次。";
+  if(code==="missing_fields") return "請輸入手機和密碼。";
+  return "登入失敗，請稍後再試。";
+}
+
+// 註冊：打 GAS 建帳號
+document.getElementById("registerBtn").addEventListener("click",function(){
+  var name=document.getElementById("rName").value.trim();
+  var phone=document.getElementById("rPhone").value.trim();
+  var pw=document.getElementById("rPw").value;
+  var pw2=document.getElementById("rPw2").value;
+  var invite=document.getElementById("rInvite").value.trim();
+  var err=document.getElementById("regErr"); err.textContent="";
+  var btn=this;
+
+  // 前端先擋一層，減少無謂連線
+  if(!name || !phone || !pw){ err.textContent="請把暱稱、手機、密碼都填好。"; return; }
+  if(!/^09\d{8}$/.test(phone)){ err.textContent="手機格式怪怪的，要 09 開頭共 10 碼。"; return; }
+  if(pw.length<6){ err.textContent="密碼至少 6 碼喔。"; return; }
+  if(pw!==pw2){ err.textContent="兩次密碼不一樣，再確認一下。"; return; }
+
+  btn.disabled=true; btn.textContent="建立中…";
+  callGAS({ action:"register", name:name, phone:phone, password:pw, invite:invite })
+    .then(function(r){
+      if(r && r.ok){
+        setToken(r.token);
+        CURRENT_MEMBER = r.member || null;
+        sessionStorage.setItem("nini_logged_in","1");
+        location.hash="#/home";
+        router();
+      } else {
+        err.textContent = regErrMsg(r && r.error);
+      }
+    })
+    .catch(function(){ err.textContent="連線失敗，請稍後再試。"; })
+    .then(function(){ btn.disabled=false; btn.textContent="建立帳號"; });
+});
+["rName","rPhone","rPw","rPw2","rInvite"].forEach(function(id){
+  document.getElementById(id).addEventListener("keydown",function(e){
+    if(e.key==="Enter") document.getElementById("registerBtn").click();
+  });
+});
+
+function regErrMsg(code){
+  if(code==="phone_exists") return "這支手機已經有帳號了，直接登入吧。";
+  if(code==="bad_phone") return "手機格式怪怪的，要 09 開頭共 10 碼。";
+  if(code==="weak_password") return "密碼至少 6 碼喔。";
+  if(code==="missing_fields") return "請把暱稱、手機、密碼都填好。";
+  return "註冊失敗，請稍後再試。";
+}
+document.getElementById("logoutBtn").addEventListener("click",function(){
+  var t=getToken();
+  if(t) callGAS({ action:"logout", token:t });   // 通知後端刪 token（不等結果）
+  clearToken();
+  CURRENT_MEMBER=null;
+  sessionStorage.removeItem("nini_logged_in");
+  location.hash="";
+  router();
+});
+window.addEventListener("hashchange",router);
+router();
+</script>
+</body>
+</html>
